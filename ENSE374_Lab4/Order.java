@@ -31,6 +31,8 @@ public class Order
 		Iterator<OrderLine> iterator = order_line.iterator();
 		System.out.println("call Order"); //test line
 
+		this.price = 0.0;
+
 		while (iterator.hasNext()) {
 			OrderLine currentOrder = iterator.next();
 			Product product = currentOrder.getProduct();
@@ -48,5 +50,26 @@ public class Order
 	{
 		OrderLine newOrder = new OrderLine(product, 1, product.getPrice());
 		order_line.add(newOrder);
+	}
+	
+	public void editOrderItem(int productID, int quantity)
+	{		
+		Iterator<OrderLine> iterator = order_line.iterator();
+		System.out.println("call Order"); //test line
+
+		while (iterator.hasNext()) 
+		{	
+			OrderLine currentOrder = iterator.next();
+			Product product = currentOrder.getProduct();
+			
+			if (product.getProductID() == productID)
+			{
+				currentOrder.setQuantity(quantity);
+				if (quantity == 0)
+					currentOrder = null;
+					
+				
+			}
+		}
 	}
 }

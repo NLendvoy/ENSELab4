@@ -1,4 +1,4 @@
-public class OrderLine 
+public class OrderLine
 {
 	private int quantity;
 	private Double price;
@@ -28,5 +28,10 @@ public class OrderLine
 	{
 		System.out.println("call OrderLine"); //test line
 		return this.price;
+	}
+	
+	public void setQuantity(int q)
+	{
+		this.quantity = q;
 	}
 }
